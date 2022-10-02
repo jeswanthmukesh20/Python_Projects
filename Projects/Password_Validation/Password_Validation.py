@@ -6,25 +6,21 @@ letter2 = list(filter(lambda b:b.islower(),Password))
 digit = list(filter(lambda a:a.isdigit(),Password))
 space = list(filter(lambda d:d.isspace(),Password))
 if len(Password)<8 ^ len(Password)>16:
-    if len(letter)==0:
-        if len(letter2)==0:
-            if len(digit)==0:
-                if ("@" in Password)^("!" in Password)^("#" in Password)^("$" in Password)^("%" in Password)^("^" in Password)^("&" in Password)^("*" in Password):
-                    if len(space)!=0:
-                        if Name.lower() not in Password:
-                            pass
-                        else:
-                            print("Error 7")
-                    else:
-                        print ("Error 6")
-                else:
-                    print("Error 5")
-            else:
-                print("Error 4")
-        else:
-            print("Error 3")
-    else:
+    if letter:
         print("Error 2")
+    elif not letter2:
+        if digit:
+            print("Error 4")
+        elif ("@" in Password)^("!" in Password)^("#" in Password)^("$" in Password)^("%" in Password)^("^" in Password)^("&" in Password)^("*" in Password):
+            if space:
+                if Name.lower() in Password:
+                    print("Error 7")
+            else:
+                print ("Error 6")
+        else:
+            print("Error 5")
+    else:
+        print("Error 3")
 else:
     print("Error 1")
     
